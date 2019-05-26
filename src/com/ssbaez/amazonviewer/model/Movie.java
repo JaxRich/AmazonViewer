@@ -43,7 +43,7 @@ public class Movie extends Film implements IVisualizable{
 	
 	public static ArrayList<Movie> makeMovieList(){
 		ArrayList<Movie> movies = new ArrayList();
-				
+		
 		for (int i = 1; i <= 5; i++)
 			movies.add(new Movie("Movie " + i, "Genero " + i, "Creador " + i, 120 + i, (short)(2017 - i)));
 
@@ -59,12 +59,18 @@ public class Movie extends Film implements IVisualizable{
 	@Override
 	public Date stopToSee(Date dateI, Date dateF) {
 		// TODO Auto-generated method stub
-		if(dateF.getTime() > dateI.getTime())
+		if(dateF.getTime() > dateI.getTime()) // getTime() metodo del objeto Date
 			setTimeViewed((int)(dateF.getTime() - dateI.getTime()));
 		else
 			setTimeViewed(0);
 		
 		return null;
+	}
+
+	@Override
+	public void view() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

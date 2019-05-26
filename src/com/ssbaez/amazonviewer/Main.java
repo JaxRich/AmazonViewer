@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
+import com.ssbaez.amazonviewer.model.Film;
 import com.ssbaez.amazonviewer.model.Movie;
+import com.ssbaez.amazonviewer.model.Serie;
 
 public class Main {
 	
@@ -12,6 +14,7 @@ public class Main {
 		
 		//Movie movie = new Movie("Coco", "Fantasy", "Unknown", 120, (short)2017);
 		//System.out.println(movie);
+		Film film = new Movie("", "", "", 0, (short)1999);
 		showMenu();
 		
 	}
@@ -64,29 +67,29 @@ public class Main {
 		}while(response != 0);
 		
 	}
-	
+	static ArrayList<Movie> movies = Movie.makeMovieList(); //Así se llama a un metodo static sin crear un Objeto
 	public static void showMovies() {
 		
 		int response = 0;
-		ArrayList<Movie> movies = Movie.makeMovieList(); //Así se llama a un metodo static sin crear un Objeto
+		
+		// ArrayList<Movie> movies = Movie.makeMovieList(); //Así se llama a un metodo static sin crear un Objeto [con estatic se puede crear desde fuera del metodo]
 		
 		do {
 			
 			System.out.println("\n :: MOVIES ::\n");
-			// Este for estara imprimiendo todos los datos de movies dummy
-			for (int i = 0; i < movies.size(); i++) {
+			
+			for (int i = 0; i < movies.size(); i++) // Este for estara imprimiendo todos los datos dummy de movies 
 				System.out.println(i+1 + ". " + movies.get(i).getTitle() + " Visto: " + movies.get(i).isViewed());
-			}
+			
 			System.out.println("0. Regresar al Menu\n");
 			
 			Scanner input = new Scanner(System.in);
 			response = input.nextInt(); // Aquí se recibe la seleccion
 			
-			// Se crea una variable de tipo Movie
-			Movie movieSelected;
+			Movie movieSelected; // ***************** Se crea una variable de tipo Movie *****************
 			
-			if(response != 0 && response <= movies.size()) { // Se evalua la seleccion
-				movieSelected = movies.get(response - 1);
+			if(response > 0 && response <= movies.size()) { // Se evalua la seleccion
+				movieSelected = movies.get(response - 1); //.get() es un metodo del objeto ArrayList
 				movieSelected.setViewed(true);
 				Date dateI = movieSelected.starToSee(new Date()); // Aquí se manda el momento en el que se empezo a ver y se guarda en dateI
 				

@@ -1,6 +1,6 @@
 package com.ssbaez.amazonviewer.model;
 
-public class Film {
+public abstract class Film {
 	
 	private String title;
 	private String genre;
@@ -81,5 +81,7 @@ public class Film {
 				"\n Creator: " 		+ getCreator() + 
 				"\n Duration: " 	+ getDuration();
 	}
+	
+	public abstract void view();
 
 }
