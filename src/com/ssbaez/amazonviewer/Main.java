@@ -14,7 +14,14 @@ public class Main {
 		
 		//Movie movie = new Movie("Coco", "Fantasy", "Unknown", 120, (short)2017);
 		//System.out.println(movie);
+		
 		Film film = new Movie("", "", "", 0, (short)1999);
+		// Se pueden crear objetos del tipo film pero instanciados de tipo Movie
+		// El objeto Film se va a comportar de la forma en la que es construido
+		// Es decir, Film sera constuido como un objeto Movie	
+		// film va a tener todos los metodos de movie
+		film.view();
+		
 		showMenu();
 		
 	}
@@ -26,7 +33,7 @@ public class Main {
 		int response = 0;
 		do {
 			System.out.println("BIENVENIDOS AMAZON VIEWER\n");
-			System.out.println("Selecciona el número de la opción deseada");
+			System.out.println("Selecciona el nï¿½mero de la opciï¿½n deseada");
 			System.out.println("1. Movies");
 			System.out.println("2. Series");
 			System.out.println("3. Books");
@@ -60,19 +67,19 @@ public class Main {
 				break;
 				
 			default:
-				System.out.println("\n...¡¡Selecciona una opcion pendejazo!!...\n");
+				System.out.println("\n...ï¿½ï¿½Selecciona una opcion pendejazo!!...\n");
 				break;
 			}
 			
 		}while(response != 0);
 		
 	}
-	static ArrayList<Movie> movies = Movie.makeMovieList(); //Así se llama a un metodo static sin crear un Objeto
+	static ArrayList<Movie> movies = Movie.makeMovieList(); //Asï¿½ se llama a un metodo static sin crear un Objeto
 	public static void showMovies() {
 		
 		int response = 0;
 		
-		// ArrayList<Movie> movies = Movie.makeMovieList(); //Así se llama a un metodo static sin crear un Objeto [con estatic se puede crear desde fuera del metodo]
+		// ArrayList<Movie> movies = Movie.makeMovieList(); //Asï¿½ se llama a un metodo static sin crear un Objeto [con estatic se puede crear desde fuera del metodo]
 		
 		do {
 			
@@ -84,29 +91,21 @@ public class Main {
 			System.out.println("0. Regresar al Menu\n");
 			
 			Scanner input = new Scanner(System.in);
-			response = input.nextInt(); // Aquí se recibe la seleccion
+			response = input.nextInt(); // Aquï¿½ se recibe la seleccion
 			
 			Movie movieSelected; // ***************** Se crea una variable de tipo Movie *****************
 			
 			if(response > 0 && response <= movies.size()) { // Se evalua la seleccion
 				movieSelected = movies.get(response - 1); //.get() es un metodo del objeto ArrayList
-				movieSelected.setViewed(true);
-				Date dateI = movieSelected.starToSee(new Date()); // Aquí se manda el momento en el que se empezo a ver y se guarda en dateI
 				
-				// Simulacion de ver la pelicula
-				for (int i = 0; i < 10000 ; i++) {
-					System.out.println(".....................................");
-				}
+				// -------------------------------------------------
 				
-				// Al terminar de ver la pelicula
-				movieSelected.stopToSee(dateI, new Date());
-				System.out.printf("%n%s%s %s%n", 
-						"Viste: ", movieSelected, "milisegundos");
+				
 			}
 			else if(response == 0)
 				System.out.println("---> Saliendo a Menu Principal");
 			else
-				System.out.println("Selección errónea");
+				System.out.println("Selecciï¿½n errï¿½nea");
 			
 		}while(response != 0);
 	}

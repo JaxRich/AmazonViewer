@@ -70,7 +70,18 @@ public class Movie extends Film implements IVisualizable{
 	@Override
 	public void view() {
 		// TODO Auto-generated method stub
+		setViewed(true);
+		Date dateI = starToSee(new Date()); // Aqu� se manda el momento en el que se empezo a ver y se guarda en dateI
 		
+		// Simulacion de ver la pelicula
+		for (int i = 0; i < 10000 ; i++) {
+			System.out.println(".....................................");
+		}
+		
+		// Al terminar de ver la pelicula *****checar este comportamiento*****
+		stopToSee(dateI, new Date());
+		System.out.printf("%n%s%s %s%n", 
+				"Viste: ", toString(), "milisegundos");
 	}
 
 }
