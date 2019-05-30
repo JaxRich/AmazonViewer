@@ -2,6 +2,8 @@ package com.ssbaez.amazonviewer.model;
 
 public abstract class Film {
 	
+	// clase abstracta
+	
 	private String title;
 	private String genre;
 	private String creator;
@@ -70,6 +72,8 @@ public abstract class Film {
 	public void setViewed(boolean viewed) {
 		this.viewed = viewed;
 	}
+	
+	// comentario prueba
 	
 	@Override
 	public String toString() {
