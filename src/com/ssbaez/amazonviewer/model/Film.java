@@ -68,6 +68,10 @@ public abstract class Film {
 			
 		return visto;
 	}
+	
+	public boolean getViewed() {
+		return viewed;
+	}
 
 	public void setViewed(boolean viewed) {
 		this.viewed = viewed;

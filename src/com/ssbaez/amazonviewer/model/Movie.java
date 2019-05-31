@@ -42,6 +42,7 @@ public class Movie extends Film implements IVisualizable{
 	}
 	
 	public static ArrayList<Movie> makeMovieList(){
+		
 		ArrayList<Movie> movies = new ArrayList();
 		
 		for (int i = 1; i <= 5; i++)

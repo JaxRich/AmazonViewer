@@ -34,6 +34,16 @@ public class Serie extends Film {
 		this.chapters = chapters;
 	}
 	
+	public static ArrayList<Serie> makeSerieList(){
+		
+		ArrayList<Serie> series = new ArrayList();
+		
+		for(int i = 1; i <= 5; i++)
+			series.add(new Serie("Serie " + i, "genero " + i, "creator " + i, 24, 10));
+		
+		return series;
+	}
+	
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
@@ -45,7 +55,9 @@ public class Serie extends Film {
 	@Override
 	public void view() {
 		// TODO Auto-generated method stub
-		
+		System.out.println(toString());
 	}
+
+	
 
 }
