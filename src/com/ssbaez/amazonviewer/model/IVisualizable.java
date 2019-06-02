@@ -10,5 +10,6 @@ public interface IVisualizable {
 	Date starToSee(Date dateI);
 	
 	Date stopToSee(Date dateI, Date dateF);
+	
 
 }

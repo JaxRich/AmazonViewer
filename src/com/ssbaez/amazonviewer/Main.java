@@ -120,12 +120,8 @@ public class Main {
 			Scanner input = new Scanner(System.in);
 			response =input.nextInt();
 			
-			Serie serieSelected;
-			
 			if(response > 0 && response <= series.size()) {
-				serieSelected = series.get(response - 1);
-				serieSelected.view();
-				showChapters(serieSelected);
+				showChapters(series.get(response-1).getChapters()); // Esto envia un ArrayList<Chapter>
 			}
 			else if(response == 0)
 				System.out.println("---> Saliendo a Menu Principal");
@@ -135,24 +131,22 @@ public class Main {
 		}while(response != 0);
 	}
 	
-	public static void showChapters(Serie serieSelected) {
+	public static void showChapters(ArrayList<Chapter> chapterOfSerieSelected) {
 		int response = 0;
 		do {
 			System.out.println("\n :: CHAPTERS ::\n");
 			
-			ArrayList<Chapter> chapters = Chapter.makeChapterList(serieSelected);
+			for(int i = 0; i < chapterOfSerieSelected.size(); i++)
+				System.out.println(i + 1 + "." + chapterOfSerieSelected.get(i).getTitle() + " Visto: " + chapterOfSerieSelected.get(i).isViewed());
 			
-			for(int i = 0; i < chapters.size(); i++)
-				System.out.println(i + 1 + "." + chapters.get(i).getTitle() + " Visto: " + chapters.get(i).isViewed());
-			
-			System.out.println("0. Regresar al Menu anterior\n");
+			System.out.println("0.Regresar al Menu anterior\n");
 			
 			Scanner input = new Scanner(System.in);
 			response =input.nextInt();
 			
 			Chapter chapterSelected;
-			if(response > 0 && response <= chapters.size()) {
-				chapterSelected = chapters.get(response - 1);
+			if(response > 0 && response <= chapterOfSerieSelected.size()) {
+				chapterSelected = chapterOfSerieSelected.get(response - 1);
 				chapterSelected.view();
 			}
 			else if(response == 0)

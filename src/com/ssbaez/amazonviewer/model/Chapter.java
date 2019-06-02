@@ -1,6 +1,7 @@
 package com.ssbaez.amazonviewer.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Chapter extends Movie {
 	
@@ -40,7 +41,6 @@ public class Chapter extends Movie {
 		// TODO Auto-generated method stub
 		return  "\n :: CHAPTER ::" + 
 			"\n Title: " + getSerie().getTitle() +
-			"\n :: CHAPTER ::" +
 			"\n Year: " + getYear() + 
 			"\n Creator: " + getCreator() +
 			"\n Duration: " + getDuration();
@@ -63,15 +63,12 @@ public class Chapter extends Movie {
 		
 		ArrayList<Chapter> chapters = getSerie().getChapters();
 		int chapterViewedCounter = 0;
-		
-		for(Chapter chapter : chapters)
+		for(Chapter chapter:chapters)
 			if(chapter.getViewed())
 				chapterViewedCounter++;
 		
 		if(chapterViewedCounter == chapters.size())
-			getSerie().setViewed(true);
-		
-		System.out.println("Viste \n" + toString());
+			getSerie().view();
 		
 	}
 

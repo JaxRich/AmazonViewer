@@ -38,8 +38,11 @@ public class Serie extends Film {
 		
 		ArrayList<Serie> series = new ArrayList();
 		
-		for(int i = 1; i <= 5; i++)
-			series.add(new Serie("Serie " + i, "genero " + i, "creator " + i, 24, 10));
+		for(int i = 1; i <= 5; i++) {
+			Serie serie = new Serie("Serie "+i, "genero "+i, "creador "+i, 1200, 5);
+			serie.setChapters(Chapter.makeChapterList(serie));
+			series.add(serie);
+		}
 		
 		return series;
 	}
@@ -55,7 +58,7 @@ public class Serie extends Film {
 	@Override
 	public void view() {
 		// TODO Auto-generated method stub
-		System.out.println(toString());
+		setViewed(true);
 	}
 
 	
