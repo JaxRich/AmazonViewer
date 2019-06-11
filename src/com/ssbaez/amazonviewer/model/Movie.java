@@ -3,6 +3,11 @@ package com.ssbaez.amazonviewer.model;
 import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ * Hereda de {@link Film}
+ * Implementa de {@link IVisualizable}
+ * */
+
 public class Movie extends Film implements IVisualizable{
 	
 	private int id;
@@ -50,13 +55,19 @@ public class Movie extends Film implements IVisualizable{
 
 		return movies;
 	}
-
+	
+	/**
+	 * {@inheritDoc}
+	 * */
 	@Override
 	public Date starToSee(Date dateI) {
 		// TODO Auto-generated method stub
 		return dateI;
 	}
-
+	
+	/**
+	 * {@inheritDoc}
+	 * */
 	@Override
 	public Date stopToSee(Date dateI, Date dateF) {
 		// TODO Auto-generated method stub
@@ -67,12 +78,15 @@ public class Movie extends Film implements IVisualizable{
 		
 		return null;
 	}
-
+	
+	/**
+	 * {@inheritDoc}
+	 * */
 	@Override
 	public void view() {
 		// TODO Auto-generated method stub
 		setViewed(true);
-		Date dateI = starToSee(new Date()); // Aqu� se manda el momento en el que se empezo a ver y se guarda en dateI
+		Date dateI = starToSee(new Date()); // Aqui se manda el momento en el que se empezo a ver y se guarda en dateI
 		
 		// Simulacion de ver la pelicula
 		for (int i = 0; i < 10000 ; i++) {

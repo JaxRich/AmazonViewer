@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
+import com.ssbaez.amazonviewer.model.Book;
 import com.ssbaez.amazonviewer.model.Chapter;
 import com.ssbaez.amazonviewer.model.Film;
 import com.ssbaez.amazonviewer.model.Movie;
@@ -11,16 +12,21 @@ import com.ssbaez.amazonviewer.model.Serie;
 
 public class Main {
 	
+	/** 
+	 * <h1>Amazon Viewer</h1>
+	 * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+	 * incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+	 * exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
+	 * irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
+	 * pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
+	 * deserunt mollit anim id est laborum.
+	 * 
+	 * @author ssbaez
+	 * @version 1.1
+	 * @since 2019
+	 *  **/
+	
 	public static void main(String[] args) {
-		
-		// Film film = new Movie("", "", "", 0, (short)1999);
-		// Se pueden crear objetos del tipo film pero instanciados de tipo Movie
-		// El objeto Film se va a comportar de la forma en la que es construido
-		// Es decir, Film sera constuido como un objeto Movie	
-		// film va a tener todos los metodos de movie
-		// film.view();
-		//Film film2 = new Chapter(title, genre, creator, duration, year, sessionNumberm, serie);
-		//film2.view();
 		
 		showMenu();
 		
@@ -157,10 +163,29 @@ public class Main {
 		}while(response != 0);
 	}
 	
+	static ArrayList<Book> books = Book.makeBooksList();
+	
 	public static void showBooks() {
 		int response = 0;
 		do {
 			System.out.println("\n :: BOOKS ::\n");
+			
+			for(int i=0; i < books.size(); i++) {
+				System.out.println(i+1 + "." + books.get(i).getTitle() + " Leido:" + books.get(i).isRead());
+			}
+			
+			System.out.println("0. Regresar al menu anterior");
+			
+			Scanner input = new Scanner(System.in);
+			response = input.nextInt();
+			
+			if(response > 0 && response <= books.size()) {
+				
+				Book bookSelected = books.get(response - 1);
+				bookSelected.read();
+				
+			}
+			
 		}while(response != 0);
 	}
 	

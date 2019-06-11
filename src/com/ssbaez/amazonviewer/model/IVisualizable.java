@@ -11,5 +11,8 @@ public interface IVisualizable {
 	
 	Date stopToSee(Date dateI, Date dateF);
 	
+	// En java 8 se puede implementar comportamientos a los metodos con Default, solo sera accesible dentro de la interfaz
+	// En java 9 se puede colocar el modifc de acceso private
+	
 
 }

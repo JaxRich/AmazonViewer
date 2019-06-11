@@ -90,6 +90,9 @@ public abstract class Film {
 				"\n Duration: " 	+ getDuration();
 	}
 	
+	/**
+	 * {@code view()} es un metodo abstracto obligatorio de implementar
+	 * */
 	public abstract void view();
 	
 
