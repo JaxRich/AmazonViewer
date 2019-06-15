@@ -2,7 +2,15 @@ package com.ssbaez.amazonviewer.model;
 
 public abstract class Film {
 	
-	// clase abstracta
+	// clase abstracta, se utiliza para definir subclases, esta se hereda para 
+	// utilizar y sobreescribir los metodos
+	
+	// no se pueden hacer instancias, solo se hereda, la herencia de metodos es lineal
+	// es decir, de una clase padrew a una clase hijo, asi sucesivamente
+	
+	// se pueden ir heredando metodos abstractos y no abstractos
+	
+	// una clase abstracta sirve para redefinir nuevas clases sin crear nuevos objetos
 	
 	private String title;
 	private String genre;
@@ -10,6 +18,10 @@ public abstract class Film {
 	private int duration;
 	private short year;
 	private boolean viewed;
+	
+	public Film() {
+		
+	}
 	
 	public Film(String title, String genre, String creator, int duration) {
 		super();

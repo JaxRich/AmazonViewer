@@ -3,15 +3,21 @@ package com.ssbaez.amazonviewer.model;
 import java.util.ArrayList;
 import java.util.Date;
 
+import com.ssbaez.amazonviewer.dao.IMovieDAO;
+
 /**
  * Hereda de {@link Film}
  * Implementa de {@link IVisualizable}
  * */
 
-public class Movie extends Film implements IVisualizable{
+public class Movie extends Film implements IVisualizable, IMovieDAO {
 	
 	private int id;
 	private int timeViewed;
+	
+	public Movie() {
+		
+	}
 
 	public Movie(String title, String genre, String creator, int duration, short year) {
 		super(title, genre, creator, duration);
@@ -47,13 +53,8 @@ public class Movie extends Film implements IVisualizable{
 	}
 	
 	public static ArrayList<Movie> makeMovieList(){
-		
-		ArrayList<Movie> movies = new ArrayList();
-		
-		for (int i = 1; i <= 5; i++)
-			movies.add(new Movie("Movie " + i, "Genero " + i, "Creador " + i, 120 + i, (short)(2017 - i)));
-
-		return movies;
+		Movie movie = new Movie();
+		return movie.read();
 	}
 	
 	/**
@@ -86,10 +87,13 @@ public class Movie extends Film implements IVisualizable{
 	public void view() {
 		// TODO Auto-generated method stub
 		setViewed(true);
+		Movie movie = new Movie();
+		movie.setMovieViewed(this);
+		
 		Date dateI = starToSee(new Date()); // Aqui se manda el momento en el que se empezo a ver y se guarda en dateI
 		
 		// Simulacion de ver la pelicula
-		for (int i = 0; i < 10000 ; i++) {
+		for (int i = 0; i < 500 ; i++) {
 			System.out.println(".....................................");
 		}
 		

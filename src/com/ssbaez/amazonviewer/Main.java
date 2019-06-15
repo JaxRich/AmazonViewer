@@ -81,26 +81,23 @@ public class Main {
 		
 	}
 	
-	static ArrayList<Movie> movies = Movie.makeMovieList(); //As� se llama a un metodo static sin crear un Objeto
-	
+	static ArrayList<Movie> movies = new ArrayList(); 
 	public static void showMovies() {
-		
+		movies = Movie.makeMovieList();
 		int response = 0;
 		
 		do {
-			
 			System.out.println("\n :: MOVIES ::\n");
-			
-			for (int i = 0; i < movies.size(); i++) // Este for estara imprimiendo todos los datos dummy de movies 
+			for (int i = 0; i < movies.size(); i++) 
 				System.out.println(i+1 + ". " + movies.get(i).getTitle() + " Visto: " + movies.get(i).isViewed());
 			
 			System.out.println("0. Regresar al Menu\n");
 			
 			Scanner input = new Scanner(System.in);
-			response = input.nextInt(); // Aqu� se recibe la seleccion
-			Movie movieSelected; // ***************** Se crea una variable de tipo Movie *****************
-			if(response > 0 && response <= movies.size()) { // Se evalua la seleccion
-				movieSelected = movies.get(response - 1); //.get() es un metodo del objeto ArrayList
+			response = input.nextInt(); 
+			Movie movieSelected; 
+			if(response > 0 && response <= movies.size()) { 
+				movieSelected = movies.get(response - 1);
 				movieSelected.view();
 			}
 			else if(response == 0)
